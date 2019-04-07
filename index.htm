@@ -19,9 +19,9 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
   </head>
   
-  <body>
+  <body onLoad="LoadUpSkills();" >
     <!-- Javascript library for this page-->
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 
     <!-- Main container for the page..-->
     <div class="container">
@@ -66,32 +66,25 @@
         <div class="progLanguages-columns">
           <div class="column">
             <h3>Beginner</h3>
-            <div>
-              <a href="https://jquery.com/">JQuery</a>
-              <p>1 year of experience..</p>
-            </div>
+            <div id="beginnerLanguages"></div>
           </div>
 
           <div class="column">
             <h3>Intermediate</h3>
-            <div>
-              <a href="https://www.w3.org/">HTML, CSS3, and JavaScript</a>
-              <p>5+ years of experience..</p>
-            </div>
+            <div id="intermediateLanguages"></div>
           </div>
 
           <div class="column">
             <h3>Advanced</h3>
-            <a href="http://www.cplusplus.com/">C++</a>
-            <p>15+ years of experience..</p>
-          </div>
+              <div id="advancedLanguages"></div>
+            </div>
         </div>
         <!-- line to seperate things a bit..-->
         <hr />
       </section>
 
       <!-- Technical skills that I have learned over the years..-->
-      <section class="Technical Skills">
+      <section class="progLanguages">
         <h2>Technical Skills</h2>
 
         <div class="progLanguages-columns">
@@ -151,7 +144,7 @@
           <a href="mailto:wbrown12@msn.com">                          <i class="far fa-envelope"  title="Email">    </i></a>
         </div>
       </section>
-      
+
     </div>
   </body>
 </html>

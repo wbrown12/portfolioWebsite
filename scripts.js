@@ -1,55 +1,136 @@
-const articlesSection = document.querySelector(".writing");
-
+// some constant values related to our shapes..
 const numShapes = 3
 const maxSize = 200
 
-let colors = []
+// set up so we can render the shapes we want to generate..
 function setup () 
 {
-  colors = [
-    color(255, 143, 0, 80),
-    color(255, 128, 171, 80),
-    color(255, 193, 7, 80),
-    color(76, 175, 80, 80),
-    color(0, 188, 212, 80),
-    color(171, 71, 188, 80),
-    color(239, 83, 80, 80)
-  ]
+  // Prepare the canvas..
   createCanvas(window.innerWidth, document.body.offsetHeight)
   noStroke()
 }
 
+// Generates a random number using our size as the seed..
 function randomNumber (size) 
 {
   return Math.floor(Math.random() * size)
 }
 
+// Generates a random length  using our length as the seed..
 function randomChoice (choices) 
 {
   let index = randomNumber(choices.length)
   return choices[index]
 }
 
+// Generate a random color..
+function randomColor()
+{
+  return color( randomNumber(255), randomNumber(255), randomNumber(255), 120 );
+}
+
+// When the user clicks, generate a RANDOM shape (for fun)..
 function mouseClicked () 
 {
-  let sideLength = randomNumber(maxSize)
-  fill(randomChoice(colors))
+  // Determine the SIZE of our object..
+  let sideLength = randomNumber(maxSize);
+
+  // Get a random color, and a random number..
+  fill(randomColor());
   let shapeType = randomNumber(numShapes)
+
+  // If we are able to divide even by 0, we are a circle..
   if (shapeType % numShapes == 0) 
   {
     ellipse(mouseX, mouseY, sideLength, sideLength)
   } 
+  // If we are able to devide evenly by 1, we will draw a rectangle..
   else if (shapeType % numShapes == 1) 
   {
     rect(mouseX, mouseY, sideLength, sideLength)
   } 
+  // Otherwise, draw a triangle..
   else 
   {
     triangle(mouseX, mouseY, mouseX + sideLength, mouseY, mouseX + (0.5 * sideLength), mouseY - sideLength)
   }
 }
 
+// Designed to keep our width/height proportional..
 window.onresize = () => 
 {
   resizeCanvas(window.innerWidth, document.body.offsetHeight)
+}
+
+// Given a start DATE, determine return how many years between then and now..
+function FillInYears( inDate )
+{
+  console.log(inDate);
+
+  // If we weren't given a date, then return nothing..
+  if( inDate === null )
+    return 0;
+
+  // Otherwise, compare the given date to NOW..
+  var curDate  = Date.now();
+  var dateMath = new Date(curDate - inDate.getTime());
+  var yearBetween = Math.abs(dateMath.getFullYear() - 1970);
+
+  // Build up the text we want to render here..
+  var ourText = yearBetween + " years of experience..";
+  //console.log(ourText);
+
+  // Now return this value..
+  return ourText;
+}
+
+
+// This will load up the skills and whatnot we have defined in this code..
+function LoadUpSkills()
+{
+  // Define our languages here..
+  var beginnerLanguages = 
+  [ 
+    {key: "JQuery", value: new Date(2017,01,01)},
+    {key: "Ruby",   value: new Date(2018,01,01)}
+  ];
+
+  var intermediateLanguages = 
+  [ 
+    {key: "HTML 5",     value: new Date(2011,01,01)},
+    {key: "CSS 3",      value: new Date(2012,01,01)},
+    {key: "JavaScript", value: new Date(2013,01,01)}
+  ];
+
+  var advancedLanguages = 
+  [ 
+    {key: "C++", value: new Date(1998,01,01)},
+    {key: "C#",  value: new Date(2009,01,01)}
+  ];
+
+   // Iterate thru our maps, and generate the language elements..
+   PopulateSkills(document.getElementById("beginnerLanguages"),     beginnerLanguages);
+   PopulateSkills(document.getElementById("intermediateLanguages"), intermediateLanguages);
+   PopulateSkills(document.getElementById("advancedLanguages"),     advancedLanguages);
+}
+
+function PopulateSkills( home, ourMap )
+{
+   for( var i=0; i<=ourMap.length; i++ )
+   {
+      // Ignore empty entries..
+      if( ourMap[i] == null )
+        continue;
+
+      // Assuming we are valid, inject TEXT in this format:
+      // <div>
+      //   Key
+      //   <p>N Years of experience..</p>
+      // </div>
+      home.appendChild( document.createTextNode(ourMap[i].key) );
+      var pEle = document.createElement("p");
+      pEle.textContent = FillInYears(ourMap[i].value);
+      home.appendChild( pEle );
+   }
+
 }
