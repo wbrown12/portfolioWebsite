@@ -85,33 +85,50 @@ function FillInYears( inDate )
 }
 
 
+// Define our languages here..
+const beginnerLanguages = 
+[ 
+  {key: "JQuery", value: new Date(2017,01,01)},
+  {key: "Ruby",   value: new Date(2018,01,01)}
+];
+const intermediateLanguages = 
+[ 
+  {key: "HTML 5",     value: new Date(2011,01,01)},
+  {key: "CSS 3",      value: new Date(2012,01,01)},
+  {key: "JavaScript", value: new Date(2013,01,01)}
+];
+const advancedLanguages = 
+[ 
+  {key: "C++", value: new Date(1998,01,01)},
+  {key: "C#",  value: new Date(2009,01,01)}
+];
+
+// Define our Skills here..
+const beginnerSkills = 
+[ 
+  {key: "Oracle18c", value: new Date(2019,01,01)}
+];
+const intermediateSkills = 
+[ 
+  {key: "Linux",  value: new Date(2011,01,01)}
+];
+const advancedSkills = 
+[ 
+  {key: "Windows", value: new Date(1995,01,01)}
+];
+
 // This will load up the skills and whatnot we have defined in this code..
 function LoadUpSkills()
 {
-  // Define our languages here..
-  var beginnerLanguages = 
-  [ 
-    {key: "JQuery", value: new Date(2017,01,01)},
-    {key: "Ruby",   value: new Date(2018,01,01)}
-  ];
-
-  var intermediateLanguages = 
-  [ 
-    {key: "HTML 5",     value: new Date(2011,01,01)},
-    {key: "CSS 3",      value: new Date(2012,01,01)},
-    {key: "JavaScript", value: new Date(2013,01,01)}
-  ];
-
-  var advancedLanguages = 
-  [ 
-    {key: "C++", value: new Date(1998,01,01)},
-    {key: "C#",  value: new Date(2009,01,01)}
-  ];
-
    // Iterate thru our maps, and generate the language elements..
    PopulateSkills(document.getElementById("beginnerLanguages"),     beginnerLanguages);
    PopulateSkills(document.getElementById("intermediateLanguages"), intermediateLanguages);
    PopulateSkills(document.getElementById("advancedLanguages"),     advancedLanguages);
+
+   // Now do the same for the skills..
+   PopulateSkills(document.getElementById("beginnerSkills"),     beginnerSkills);
+   PopulateSkills(document.getElementById("intermediateSkills"), intermediateSkills);
+   PopulateSkills(document.getElementById("advancedSkills"),     advancedSkills);
 }
 
 function PopulateSkills( home, ourMap )
