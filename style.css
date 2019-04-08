@@ -102,7 +102,6 @@ canvas
 {
   font-size: 70px;
   font-weight: 800;
-  mix-blend-mode: darken;
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: -4px;
@@ -118,13 +117,16 @@ canvas
   text-align: center;
 }
 
-<!-- Mobile Specific CSS.. -->
-@media only screen and (max-width: 450px) 
+@media (max-width: 450px) 
 {
+  <!-- Mobile Specific CSS.. -->
+  .big-letters
+  {
+    color: black;    
+  }
   .big-letters span 
   {
     font-size: 40px;
-    mix-blend-mode: initial;
   }
   section 
   {
@@ -136,9 +138,9 @@ canvas
   }
 }
 
-<!-- Tablet Specific CSS.. -->
-@media only screen and (max-width: 600px) 
+@media (max-width: 600px) 
 {
+  <!-- Tablet Specific CSS.. -->
   .progLanguages-columns 
   {
     display: block;
