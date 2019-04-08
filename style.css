@@ -118,16 +118,13 @@ canvas
   text-align: center;
 }
 
-::selection 
-{
-  background: lavender;
-}
-
+<!-- Mobile Specific CSS.. -->
 @media only screen and (max-width: 450px) 
 {
   .big-letters span 
   {
     font-size: 40px;
+    mix-blend-mode: initial;
   }
   section 
   {
@@ -139,6 +136,7 @@ canvas
   }
 }
 
+<!-- Tablet Specific CSS.. -->
 @media only screen and (max-width: 600px) 
 {
   .progLanguages-columns 

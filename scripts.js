@@ -2,6 +2,53 @@
 const numShapes = 3
 const maxSize = 200
 
+//---------------------------------
+// Define our languages here..
+const beginnerLanguages = 
+[ 
+  {key: "JQuery", value: new Date(2016,01,01)},
+  {key: "Python", value: new Date(2018,01,01)},
+  {key: "Ruby",   value: new Date(2018,01,01)},
+];
+const intermediateLanguages = 
+[ 
+  {key: "HTML 5",     value: new Date(2011,01,01)},
+  {key: "CSS 3",      value: new Date(2012,01,01)},
+  {key: "JavaScript", value: new Date(2013,01,01)},
+  {key: "LUA Script", value: new Date(2012,01,01)},
+];
+const advancedLanguages = 
+[ 
+  {key: "C++",          value: new Date(1998,01,01)},
+  {key: "Visual Basic", value: new Date(2000,01,01)},
+  {key: "SQL",          value: new Date(2005,01,01)},
+  {key: "ASP.NET",      value: new Date(2007,01,01)},
+  {key: "C#",           value: new Date(2009,01,01)},
+];
+
+//---------------------------------
+// Define our Skills here..
+const beginnerSkills = 
+[ 
+  {key: "Blockchain", value: new Date(2018,01,01)},
+  {key: "Postman",    value: new Date(2016,01,01)},
+];
+const intermediateSkills = 
+[ 
+  {key: "Linux",    value: new Date(2011,01,01)},
+  {key: "Unix",     value: new Date(2013,01,01)},
+  {key: "MySQL",    value: new Date(2015,01,01)},
+];
+const advancedSkills = 
+[ 
+  {key: "Windows",              value: new Date(1995,01,01)},
+  {key: "Visual Studio",        value: new Date(1995,01,01)},
+  {key: "MS Excel",             value: new Date(1995,01,01)},
+  {key: "MS Word",              value: new Date(1995,01,01)},
+  {key: "Oracle (9i thru 18c)", value: new Date(2005,01,01)},  
+  {key: "Windows Server",       value: new Date(2005,01,01)},
+];
+
 // set up so we can render the shapes we want to generate..
 function setup () 
 {
@@ -77,45 +124,12 @@ function FillInYears( inDate )
   var yearBetween = Math.abs(dateMath.getFullYear() - 1970);
 
   // Build up the text we want to render here..
-  var ourText = yearBetween + " years of experience..";
+  var ourText = yearBetween + " years..";
   //console.log(ourText);
 
   // Now return this value..
   return ourText;
 }
-
-
-// Define our languages here..
-const beginnerLanguages = 
-[ 
-  {key: "JQuery", value: new Date(2017,01,01)},
-  {key: "Ruby",   value: new Date(2018,01,01)}
-];
-const intermediateLanguages = 
-[ 
-  {key: "HTML 5",     value: new Date(2011,01,01)},
-  {key: "CSS 3",      value: new Date(2012,01,01)},
-  {key: "JavaScript", value: new Date(2013,01,01)}
-];
-const advancedLanguages = 
-[ 
-  {key: "C++", value: new Date(1998,01,01)},
-  {key: "C#",  value: new Date(2009,01,01)}
-];
-
-// Define our Skills here..
-const beginnerSkills = 
-[ 
-  {key: "Oracle18c", value: new Date(2019,01,01)}
-];
-const intermediateSkills = 
-[ 
-  {key: "Linux",  value: new Date(2011,01,01)}
-];
-const advancedSkills = 
-[ 
-  {key: "Windows", value: new Date(1995,01,01)}
-];
 
 // This will load up the skills and whatnot we have defined in this code..
 function LoadUpSkills()
@@ -144,10 +158,17 @@ function PopulateSkills( home, ourMap )
       //   Key
       //   <p>N Years of experience..</p>
       // </div>
-      home.appendChild( document.createTextNode(ourMap[i].key) );
+      //home.appendChild( document.createTextNode(ourMap[i].key) );
+      //var pEle = document.createElement("p");
+      //pEle.textContent = FillInYears(ourMap[i].value);
+      //home.appendChild( pEle );
+
+      // OR..
+      // We could render them line by line (more mobile friendly):
       var pEle = document.createElement("p");
-      pEle.textContent = FillInYears(ourMap[i].value);
+      pEle.textContent = ourMap[i].key + " - " + FillInYears(ourMap[i].value);
       home.appendChild( pEle );
+
    }
 
 }
