@@ -4,6 +4,7 @@ var canvas = document.getElementById('ourCanvas');
 var can_w  = parseInt(canvas.getAttribute('width'));
 var can_h  = parseInt(canvas.getAttribute('height'));
 var ctx    = canvas.getContext('2d');
+var cScrl  = 0;
 
 // These are our variables related to the balls..
 var ball        = {x: 0, y: 0, vx: 0, vy: 0, r: 0, alpha: 1, phase: 0}; // ball object..
@@ -12,6 +13,7 @@ var R           = 2;                        // random speed..
 var balls       = [];                       // container for balls..
 var alpha_f     = 0.03;                     // able to see thru them..
 var alpha_phase = 0;
+var offset      = 0;
     
 // Lines connecting the balls..
 var link_line_width = 0.8;      // How thick are the lines?
@@ -229,12 +231,16 @@ body.addEventListener('mousemove', function(e)
 {
     var e = e || window.event;
     mouse_ball.x = e.pageX;
-    mouse_ball.y = e.pageY;
+    mouse_ball.y = e.pageY - cScrl; // retain mouse/cursor position by adjusting for scroll..
     // console.log(mouse_ball);
 });
 
-document.addEventListener('scroll', function(e)
+window.addEventListener('scroll', function(e)
 {
-    mouse_ball.x = 0;
-    mouse_ball.y = 0;
+    var e = e || window.event;
+    
+    //console.log(e.srcElement.scrollingElement.scrollTop);
+    var st = e.srcElement.scrollingElement.scrollTop;
+    //console.log((st < cScrl) ? 'scroll up..' : 'scroll down..');
+    cScrl = st;
 });
