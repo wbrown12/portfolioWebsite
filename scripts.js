@@ -1,7 +1,3 @@
-// some constant values related to our shapes..
-const numShapes = 3
-const maxSize = 200
-
 //---------------------------------
 // Define our languages here..
 const beginnerLanguages = 
@@ -49,65 +45,6 @@ const advancedSkills =
   {key: "Windows Server",       value: new Date(2005,01,01)},
 ];
 
-// set up so we can render the shapes we want to generate..
-function setup () 
-{
-  // Prepare the canvas..
-  createCanvas(window.innerWidth, document.body.offsetHeight)
-  noStroke()
-}
-
-// Generates a random number using our size as the seed..
-function randomNumber (size) 
-{
-  return Math.floor(Math.random() * size)
-}
-
-// Generates a random length  using our length as the seed..
-function randomChoice (choices) 
-{
-  let index = randomNumber(choices.length)
-  return choices[index]
-}
-
-// Generate a random color..
-function randomColor()
-{
-  return color( randomNumber(255), randomNumber(255), randomNumber(255), 120 );
-}
-
-// When the user clicks, generate a RANDOM shape (for fun)..
-function mouseClicked () 
-{
-  // Determine the SIZE of our object..
-  let sideLength = randomNumber(maxSize);
-
-  // Get a random color, and a random number..
-  fill(randomColor());
-  let shapeType = randomNumber(numShapes)
-
-  // If we are able to divide even by 0, we are a circle..
-  if (shapeType % numShapes == 0) 
-  {
-    ellipse(mouseX, mouseY, sideLength, sideLength)
-  } 
-  // If we are able to devide evenly by 1, we will draw a rectangle..
-  else if (shapeType % numShapes == 1) 
-  {
-    rect(mouseX, mouseY, sideLength, sideLength)
-  } 
-  // Otherwise, draw a triangle..
-  else 
-  {
-    triangle(mouseX, mouseY, mouseX + sideLength, mouseY, mouseX + (0.5 * sideLength), mouseY - sideLength)
-  }
-}
-
-// Designed to keep our width/height proportional..
-window.onresize = () => 
-{
-  resizeCanvas(window.innerWidth, document.body.offsetHeight)
-}
 
 // Given a start DATE, determine return how many years between then and now..
 function FillInYears( inDate )
@@ -168,7 +105,7 @@ function PopulateSkills( home, ourMap )
       var pEle = document.createElement("p");
       pEle.textContent = ourMap[i].key + " - " + FillInYears(ourMap[i].value);
       home.appendChild( pEle );
-
    }
-
 }
+
+

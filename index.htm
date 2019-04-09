@@ -12,20 +12,25 @@
     <!-- our main CSS..-->
     <link rel="stylesheet" href="./style.css" />
     
-    <!-- The below scripts are used to pull images in from a library for social media icons..-->
-    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/brands.js"      integrity="sha384-rUOIFHM3HXni/WG5pzDhA1e2Js5nn4bWudTYujHbbI9ztBIxK54CL4ZNZWwcBQeD" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/fontawesome.js" integrity="sha384-EMmnH+Njn8umuoSMZ3Ae3bC9hDknHKOWL2e9WJD/cN6XLeAN7tr5ZQ0Hx5HDHtkS" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/regular.js"     integrity="sha384-Uc9toywOA44owltk1MWl0lQZ+L0mBzJkLQcdif6+JtG9izvok9DLJtCZX57Uq3k2" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
+    <!-- The link is used to pull images in from a free library of icons..-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
-  
-  <body onLoad="LoadUpSkills();" >
+
+
+  <body id="ourBody" onLoad="LoadUpSkills();" >
+
+    <canvas id="ourCanvas">Try on a browser that supports canvas!</canvas>
+
+    <!-- JQuery library for canvas work-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <!-- Javascript library for this page-->
     <script src="scripts.js"></script>
+    <script src="canvasJS.js"></script>
 
     <!-- Main container for the page..-->
     <div class="container">
-      
+
       <!-- This is the TOP of the page.. -->
       <header>
         <!-- Special CSS rules apply to this header..-->
@@ -39,11 +44,10 @@
 
         <!-- using a library to pull up to date icons for social media..-->
         <div class="social-links">
-          <a href="WillBrown_Resume.pdf">                             <i class="far fa-file-pdf"  title="Resume"> </i></a>
-          <a href="https://www.facebook.com/TheFourthWill">           <i class="fab fa-facebook"  title="Facebook"> </i></a>
-          <a href="https://instagram.com/thefourthwill">              <i class="fab fa-instagram" title="Instagram"></i></a>
+          <a href="WillBrown_Resume.pdf">                             <i class="far fa-file-pdf"  title="Resume">   </i></a>
           <a href="https://www.linkedin.com/in/will-brown-91440513a/"><i class="fab fa-linkedin"  title="Linked In"></i></a>
-          <a href="https://github.com/the4thwill">                    <i class="fab fa-github"    title="GitHub">   </i></a>
+          <a href="https://www.github.com/the4thwill">                <i class="fab fa-github"    title="GitHub">   </i></a>
+          <a href="tel:+15406301271">                                 <i class="fas fa-phone"     title="Phone">    </i></a>
           <a href="mailto:wbrown12@msn.com">                          <i class="far fa-envelope"  title="Email">    </i></a>
         </div>
 
@@ -55,7 +59,7 @@
       <section class="about">
         <h2>About</h2>
         <p>
-          I'm current the head of development at <a href="http://onetouchhcm.com/" class="dark-purple">OneTouch HCM</a>, where I have been implementing full stack code for over 10 years. 
+          I'm currently the head of development at <a href="http://onetouchhcm.com/" class="dark-purple">OneTouch HCM</a>, where I have been implementing full stack code for over 10 years. 
           I started off as an entry level Software Engineer and quickly became a Lead Software Engineer. I learned to lead from those who lead me, and eventually ended up in a position
           where I am now the leader.
         </p>
@@ -148,12 +152,11 @@
 
       <section class="social-footer">
         <div class="social-links">
-          <a href="WillBrown_Resume.pdf">                             <i class="far fa-file-pdf"  title="Resume"> </i></a>
-          <a href="https://www.facebook.com/TheFourthWill">           <i class="fab fa-facebook"   title="Facebook"> </i></a>
-          <a href="https://instagram.com/thefourthwill">              <i class="fab fa-instagram"  title="Instagram"></i></a>
-          <a href="https://www.linkedin.com/in/will-brown-91440513a/"><i class="fab fa-linkedin"   title="Linked In"></i></a>
-          <a href="https://github.com/the4thwill">                    <i class="fab fa-github"     title="GitHub">   </i></a>
-          <a href="mailto:wbrown12@msn.com">                          <i class="far fa-envelope"   title="Email">    </i></a>
+          <a href="WillBrown_Resume.pdf">                             <i class="far fa-file-pdf"  title="Resume">   </i></a>
+          <a href="https://www.linkedin.com/in/will-brown-91440513a/"><i class="fab fa-linkedin"  title="Linked In"></i></a>
+          <a href="https://www.github.com/the4thwill">                <i class="fab fa-github"    title="GitHub">   </i></a>
+          <a href="tel:+15406301271">                                 <i class="fas fa-phone"     title="Phone">    </i></a>
+          <a href="mailto:wbrown12@msn.com">                          <i class="far fa-envelope"  title="Email">    </i></a>
         </div>
       </section>
 
