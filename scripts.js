@@ -16,7 +16,7 @@ const intermediateLanguages =
 const advancedLanguages = 
 [ 
   {key: "C++",          value: new Date(1998,01,01)},
-  {key: "Visual Basic", value: new Date(2000,01,01)},
+  {key: "Visual Basic", value: 8},
   {key: "SQL",          value: new Date(2005,01,01)},
   {key: "ASP.NET",      value: new Date(2007,01,01)},
   {key: "C#",           value: new Date(2009,01,01)},
@@ -103,7 +103,7 @@ function PopulateSkills( home, ourMap )
       // OR..
       // We could render them line by line (more mobile friendly):
       var pEle = document.createElement("p");
-      pEle.textContent = ourMap[i].key + " - " + FillInYears(ourMap[i].value);
+      pEle.textContent = ourMap[i].key + " - " + ((typeof ourMap[i].value == "number") ?  ourMap[i].value + " years.." : FillInYears(ourMap[i].value)) ;
       home.appendChild( pEle );
    }
 }
