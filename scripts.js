@@ -22,6 +22,22 @@ const advancedLanguages =
   {key: "C#",           value: new Date(2009,01,01)},
 ];
 
+const languages = 
+[ 
+  {key: "JQuery",       value: new Date(2016,01,01)},
+  {key: "Python",       value: new Date(2018,01,01)},
+  {key: "Ruby",         value: new Date(2018,01,01)},
+  {key: "HTML 5",       value: new Date(2011,01,01)},
+  {key: "CSS 3",        value: new Date(2012,01,01)},
+  {key: "JavaScript",   value: new Date(2013,01,01)},
+  {key: "LUA Script",   value: new Date(2012,01,01)},
+  {key: "C++",          value: new Date(1998,01,01)},
+  {key: "Visual Basic", value: 8},
+  {key: "SQL",          value: new Date(2005,01,01)},
+  {key: "ASP.NET",      value: new Date(2007,01,01)},
+  {key: "C#",           value: new Date(2009,01,01)},
+];
+
 //---------------------------------
 // Define our Skills here..
 const beginnerSkills = 
@@ -45,19 +61,32 @@ const advancedSkills =
   {key: "Windows Server",       value: new Date(2005,01,01)},
 ];
 
+const skills = 
+[ 
+  {key: "Blockchain",           value: new Date(2018,01,01)},
+  {key: "Postman",              value: new Date(2016,01,01)},
+  {key: "Linux",                value: new Date(2011,01,01)},
+  {key: "Unix",                 value: new Date(2013,01,01)},
+  {key: "MySQL",                value: new Date(2015,01,01)},
+  {key: "Windows",              value: new Date(1995,01,01)},
+  {key: "Visual Studio",        value: new Date(1995,01,01)},
+  {key: "MS Excel",             value: new Date(1995,01,01)},
+  {key: "MS Word",              value: new Date(1995,01,01)},
+  {key: "Oracle (9i thru 18c)", value: new Date(2005,01,01)},  
+  {key: "Windows Server",       value: new Date(2005,01,01)},
+];
+
 
 // Given a start DATE, determine return how many years between then and now..
 function FillInYears( inDate )
 {
-  console.log(inDate);
-
   // If we weren't given a date, then return nothing..
   if( inDate === null )
     return 0;
 
   // Otherwise, compare the given date to NOW..
-  var curDate  = Date.now();
-  var dateMath = new Date(curDate - inDate.getTime());
+  var curDate     = Date.now();
+  var dateMath    = new Date(curDate - inDate.getTime());
   var yearBetween = Math.abs(dateMath.getFullYear() - 1970);
 
   // Build up the text we want to render here..
@@ -102,6 +131,7 @@ function PopulateSkills( home, ourMap )
 
       // OR..
       // We could render them line by line (more mobile friendly):
+      // <p>key - N Years..</p>
       var pEle = document.createElement("p");
       pEle.textContent = ourMap[i].key + " - " + ((typeof ourMap[i].value == "number") ?  ourMap[i].value + " years.." : FillInYears(ourMap[i].value)) ;
       home.appendChild( pEle );
