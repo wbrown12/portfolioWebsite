@@ -29,8 +29,8 @@ const languages =
 const skills = 
 [ 
   // Skills I want a hard number of years on..
-  {key: "MS Word",              value: 9},
   {key: "Direct X",             value: 2},
+  {key: "MS Word",              value: 9},
   {key: "Open GL",              value: 2},
   // Skills I want to lookup the timespan between the value and now..
   {key: "Blockchain",           value: new Date(2018,01,01)},
@@ -43,7 +43,6 @@ const skills =
   {key: "MS Excel",             value: new Date(1995,01,01)},
   {key: "Oracle (9i thru 18c)", value: new Date(2005,01,01)},  
   {key: "Windows Server",       value: new Date(2005,01,01)},
-  {key: ".NET",                 value: new Date(2001,01,01)},
   {key: ".NET",                 value: new Date(2001,01,01)},
 ];
 
