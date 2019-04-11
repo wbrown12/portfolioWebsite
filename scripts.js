@@ -111,4 +111,12 @@ function PopulateSkills( home, ourMap )
   }
 }
 
+// If the text is hidden, remove the CSS so it appears..
+// otherwise, we want to shrink it down so it is hidden again..
+function showOrHideText(ele)
+{
+  ele.className = ( ele.className == "cropText" ) ? "cropTextOpen" : "cropText";
+  //ele.classList.toggle('openUp');
+  console.log(ele.classList);
+}
 

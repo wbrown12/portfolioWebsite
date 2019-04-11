@@ -117,6 +117,41 @@ canvas
   text-align: center;
 }
 
+.remembered
+{
+  margin:             0 0 1em 0;
+  overflow:           hidden;  
+  display:            -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;  
+
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);    
+}
+
+.cropText 
+{ 
+  margin:             0 0 1em 0;
+  overflow:           hidden;  
+  display:            -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;  
+
+  transition: all .5s ease-in-out;
+}​
+
+.cropText:target 
+{ 
+  margin:             0 0 1em 0;
+  overflow:           auto;  
+  display:            -webkit-box;
+  -webkit-line-clamp: 999;
+  -webkit-box-orient: vertical;  
+
+  transition: all .5s ease-in-out;
+}​
+
 html, body
 {
     height: 100%;
